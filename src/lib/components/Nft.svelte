@@ -8,7 +8,7 @@
 	let artist = 'sArt007';
 	let imgUrl = '/img/cyberCat.png';
 	let isOwned = true;
-	let isLocked = false;
+	let isLocked = true;
 </script>
 
 <div
@@ -63,6 +63,8 @@
 		{/if}
 	</div>
 </div>
+
+//
 
 <style lang="scss">
 	.glowing-image {

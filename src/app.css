@@ -4,7 +4,21 @@
 @tailwind utilities;
 
 body {
-	@apply bg-paper-900 text-paper-100 overflow-hidden;
+	@apply bg-paper-900 text-paper-100;
+}
+body::-webkit-scrollbar {
+	@apply w-3;
+}
+
+body::-webkit-scrollbar-track {
+	@apply bg-paper-950;
+}
+
+body::-webkit-scrollbar-thumb {
+	@apply bg-primary/70 rounded-lg shadow-lg;
+}
+body::-webkit-scrollbar-thumb:hover {
+	@apply bg-primary;
 }
 * {
 	@apply outline-none;

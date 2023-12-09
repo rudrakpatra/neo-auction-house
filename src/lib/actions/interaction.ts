@@ -8,8 +8,10 @@ export function press(
 	} = {
 		press: (el, t) => {
 			const w = el.getBoundingClientRect().width;
-			const x = (w - 6 * t) / w;
-			el.style.transform = `scale(${x})`;
+			const h = el.getBoundingClientRect().height;
+			const x = w / (w + 6 * t);
+			const y = h / (h + 6 * t);
+			el.style.transform = `scale(${x}, ${y})`;
 		}
 	}
 ) {
@@ -20,7 +22,7 @@ export function press(
 		pressSpring.stiffness = 0.2;
 		pressSpring.damping = 0.8;
 		pressSpring.set(1);
-		if (ev instanceof PointerEvent) window.addEventListener('click', onrelease, { once: true });
+		if (ev instanceof PointerEvent) window.addEventListener('pointerup', onrelease, { once: true });
 	};
 	const onrelease = () => {
 		pressSpring.damping = 0.25;
