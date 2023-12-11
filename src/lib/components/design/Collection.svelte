@@ -1,7 +1,7 @@
 <script>
 	import { press } from '$lib/actions/interaction';
 	import {io} from '$lib/actions/observers';
-	import MinaToken from '$lib/icons/MinaToken.svelte';
+	import MinaToken from './MinaToken.svelte';
 
 	export let name = 'Cyber Cat';
 	export let id = 1234;

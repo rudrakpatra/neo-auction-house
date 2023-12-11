@@ -68,7 +68,7 @@
 				class="p-4 text-2xl rounded-lg min-w-[600px]
 				text-paper-100 bg-paper-300/20 backdrop-blur-lg
 				placeholder-paper-400
-				shadow-lg shadow-paper-950/50
+				shadow-lg shadow-paper-950/20
             	"
 				placeholder="Search anything....."
 				required
@@ -80,7 +80,7 @@
 				class="px-4 py-4 rounded-lg
 				aspect-square grid place-content-center
 				bg-paper-300/20 backdrop-blur-lg
-				shadow-lg shadow-paper-950/50
+				shadow-lg shadow-paper-950/20
 				"
 			>
 				<SearchIcon class="w-8 h-8" />
@@ -93,6 +93,9 @@
 </header>
 
 <style>
+	:global(.header-p-t){
+		@apply pt-20;
+	}
 	a.active {
 		@apply text-accent border-b-[1px] border-accent;
 	}

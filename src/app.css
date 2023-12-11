@@ -7,7 +7,7 @@ body {
 	@apply bg-paper-900 text-paper-100;
 }
 body::-webkit-scrollbar {
-	@apply w-3;
+	@apply w-2;
 }
 
 body::-webkit-scrollbar-track {
@@ -15,11 +15,14 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-	@apply bg-primary/70 rounded-lg shadow-lg;
+	@apply bg-primary rounded-lg shadow-lg;
 }
 body::-webkit-scrollbar-thumb:hover {
-	@apply bg-primary;
+	@apply bg-paper-0;
 }
 * {
 	@apply outline-none;
+}
+hidden{
+	@apply hidden;
 }
