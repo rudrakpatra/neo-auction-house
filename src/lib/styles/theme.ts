@@ -14,6 +14,7 @@ const theme = {
 		'3xl': '2560px'
 	},
 	colors: {
+		transparent: 'transparent',
 		primary: '#00b2ff', //blue
 		secondary: '#00ff38', //lime
 		accent: '#ff6b00', //orange
@@ -28,7 +29,7 @@ const theme = {
 			600: '#71717a',
 			700: '#52525b',
 			800: '#3f3f46',
-			900: '#27272a',
+			900: '#1E1E1E',
 			950: '#09090b'
 		},
 		card: {

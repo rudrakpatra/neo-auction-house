@@ -1,5 +1,5 @@
 .card {
-	@apply select-none inline-block gap-3 p-3;
+	@apply select-none grid gap-3 p-3;
 
 	@apply rounded-xl;
 
@@ -9,15 +9,11 @@
 		@apply rounded-xl;
 	}
 
-	img {
-		@apply object-contain;
-	}
-
 	h1,
 	h2,
 	h3,
 	a {
-		@apply inline-flex gap-1 items-baseline;
+		@apply flex gap-3 items-baseline;
 	}
 
 	h1 {

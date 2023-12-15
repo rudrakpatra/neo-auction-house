@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { focus, press } from '$lib/actions/interaction';
 	import Logo from '$lib/icons/Logo.svelte';
-	import {Search} from 'lucide-svelte';
+	import { Search } from 'lucide-svelte';
 
 	let links = [
 		{ name: 'Live Auctions', url: '/' },
@@ -66,8 +66,9 @@
 				tabindex="-1"
 				type="text"
 				class="p-4 text-2xl rounded-lg min-w-[600px]
-				text-paper-100 bg-paper-300/20 backdrop-blur-lg
-				placeholder-paper-400
+				 bg-transparent backdrop-blur-lg backdrop-brightness-75 backdrop-contrast-75 backdrop-saturate-200
+				 border-2 border-paper-900/10
+				 text-paper-100 placeholder-paper-300
 				shadow-lg shadow-paper-950/20
             	"
 				placeholder="Search anything....."
@@ -79,11 +80,12 @@
 				type="button"
 				class="px-4 py-4 rounded-lg
 				aspect-square grid place-content-center
-				bg-paper-300/20 backdrop-blur-lg
+				bg-transparent backdrop-blur-lg backdrop-brightness-75 backdrop-contrast-75 backdrop-saturate-200
+				border-2 border-paper-900/10
 				shadow-lg shadow-paper-950/20
 				"
 			>
-				<Search class="w-8 h-8" />
+				<Search class="stroke-paper-100 w-8 h-8" />
 			</button>
 		</form>
 		<div
@@ -92,11 +94,10 @@
 	</search-bar>
 </header>
 
-
 <svelte:head>
 	<style lang="scss">
-		header:has(+header-config[data-floating-search-bar="true"]) {
-			>search-bar {
+		header:has(+ header-config[data-floating-search-bar='true']) {
+			> search-bar {
 				@apply absolute;
 			}
 		}

@@ -87,8 +87,10 @@
 			<ArrowLeft
 				class="
 				w-16 h-16 p-2 rounded-full
-				stroke-paper-100 border-2 border-paper-100/40
-				bg-paper-300/20 backdrop-blur-lg shadow-lg shadow-paper-950/20
+				stroke-paper-100 
+				border-2 border-paper-900/10
+				bg-transparent backdrop-blur-lg backdrop-brightness-75 backdrop-contrast-75 backdrop-saturate-200
+				shadow-lg shadow-paper-950/20
 			"
 			/>
 		</span>
@@ -98,8 +100,10 @@
 			<ArrowRight
 				class="
 				w-16 h-16 p-2 rounded-full
-				stroke-paper-100 border-2 border-paper-100/40
-				bg-paper-300/20 backdrop-blur-lg shadow-lg shadow-paper-950/20
+				stroke-paper-100 
+				border-2 border-paper-900/10
+				bg-transparent backdrop-blur-lg backdrop-brightness-75 backdrop-contrast-75 backdrop-saturate-200
+				shadow-lg shadow-paper-950/20
 			"
 			/>
 		</span>

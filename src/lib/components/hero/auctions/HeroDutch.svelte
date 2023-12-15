@@ -12,7 +12,7 @@
 	$: minPrice = auctionType.minPrice;
 	$: elaspedTime = $currentTime - auction.startTime;
 	$: currentPrice = Math.max(startPrice - (decayRate / hour) * elaspedTime, minPrice);
-	$: timeLeftForMinPrice = Math.max(1, (startPrice - minPrice) / (decayRate / hour) - elaspedTime);
+	$: timeLeftForMinPrice = Math.max(0, (startPrice - minPrice) / (decayRate / hour) - elaspedTime);
 	$: details = [
 		{
 			name: 'Type',
@@ -44,7 +44,7 @@
 		</div>
 		<div
 			class="text-paper-100 font-bold text-2xl overflow-hidden overflow-ellipsis"
-			style="width:{detail.width}"
+			style="width:{detail.width};"
 		>
 			{detail.value}
 		</div>
