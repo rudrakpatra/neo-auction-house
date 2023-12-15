@@ -2,10 +2,10 @@
 	import { page } from '$app/stores';
 	import { focus, press } from '$lib/actions/interaction';
 	import Logo from '$lib/icons/Logo.svelte';
-	import SearchIcon from '$lib/icons/SearchIcon.svelte';
+	import {Search} from 'lucide-svelte';
 
 	let links = [
-		{ name: 'Live Auction', url: '/' },
+		{ name: 'Live Auctions', url: '/' },
 		{ name: 'My Auction', url: '/myauction' },
 		{ name: 'My Bids', url: '/mybids' },
 		{ name: 'My NFTS', url: '/mynfts' }
@@ -55,7 +55,7 @@
 			{/each}
 		</ul>
 	</nav>
-	<div class="absolute w-full flex gap-1">
+	<search-bar class="w-full flex gap-1">
 		<div
 			class="bg-paper-950 shadow-lg shadow-paper-950/50 flex-1 rounded-br-2xl relative h-12 corner-right"
 		/>
@@ -83,23 +83,30 @@
 				shadow-lg shadow-paper-950/20
 				"
 			>
-				<SearchIcon class="w-8 h-8" />
+				<Search class="w-8 h-8" />
 			</button>
 		</form>
 		<div
 			class="bg-paper-950 shadow-lg shadow-paper-950/50 flex-1 rounded-bl-2xl relative h-12 corner-left"
 		/>
-	</div>
+	</search-bar>
 </header>
 
+
+<svelte:head>
+	<style lang="scss">
+		header:has(+header-config[data-floating-search-bar="true"]) {
+			>search-bar {
+				@apply absolute;
+			}
+		}
+	</style>
+</svelte:head>
+
 <style>
-	:global(.header-p-t){
-		@apply pt-20;
-	}
 	a.active {
 		@apply text-accent border-b-[1px] border-accent;
 	}
-
 	.corner-right:after {
 		@apply bg-paper-950;
 		content: '';

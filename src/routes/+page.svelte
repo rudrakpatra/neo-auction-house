@@ -1,7 +1,8 @@
 <script lang="ts">
-	import Banner from "./Banner.svelte";
-
-
+	import Footer from './Footer.svelte';
+	import HeroSection from "../lib/components/hero/Hero.svelte";
 </script>
 
-<Banner/>
+<header-config data-floating-search-bar="true"/>
+<HeroSection/>
+<Footer/>

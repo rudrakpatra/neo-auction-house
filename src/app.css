@@ -4,6 +4,7 @@
 @tailwind utilities;
 
 body {
+	@apply overflow-y-scroll;
 	@apply bg-paper-900 text-paper-100;
 }
 body::-webkit-scrollbar {
@@ -23,6 +24,6 @@ body::-webkit-scrollbar-thumb:hover {
 * {
 	@apply outline-none;
 }
-hidden{
+hidden {
 	@apply hidden;
 }

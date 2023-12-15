@@ -1,97 +1,168 @@
-//data from open sea
-export const collections = [
-	{
-		name: 'Sofa Vision',
-		imgUrl: 'https://i.seadn.io/s/raw/files/98c92f50e3096967db8bc603dd624ed0.png',
-		startTime: Date.now() - 1000 * 60 * 60 * 24 * 3, // 3 days ago
-		endTime: Date.now() + 1000 * 60 * 60 * 24 * 3.5 //3.5 days
-	},
-	{
-		name: 'Mutant Ape Yacht Club',
-		imgUrl:
-			'https://i.seadn.io/gae/5c-HcdLMinTg3LvEwXYZYC-u5nN22Pn5ivTPYA4pVEsWJHU1rCobhUlHSFjZgCHPGSmcGMQGCrDCQU8BfSfygmL7Uol9MRQZt6-gqA',
-		startTime: Date.now() - 1000 * 60 * 60 * 24 * 2, // 2 days ago
-		endTime: Date.now() + 1000 * 60 * 60 * 24 * 5 // 5 days
-	},
-	{
-		name: 'Rug Radio',
-		imgUrl: 'https://i.seadn.io/gcs/files/bb9ef4c247eb6a462700cd8ff6644f7e.png',
-		startTime: Date.now() - 1000 * 60 * 60 * 24 * 1.5, // 1.5 days ago
-		endTime: Date.now() + 1000 * 60 * 60 * 24 * 1.2 // 1.2 days
-	},
-	{
-		name: 'Lil Pudgys',
-		imgUrl: 'https://i.seadn.io/gcs/files/ff12374123ac5e8571b01d03874e8a76.png',
-		startTime: Date.now() - 1000 * 60 * 60 * 24 * 1, // 1 day ago
-		endTime: Date.now() + 1000 * 60 * 60 * 24 * 1 // 1 day
-	},
-	{
-		name: 'Ai Animals Punk',
-		imgUrl: 'https://i.seadn.io/s/raw/files/c15feddf9da5d6caa97a07cadef49712.jpg',
-		startTime: Date.now() - 1000 * 60 * 60 * 24 * 0.5, // 0.5 days ago
-		endTime: Date.now() + 1000 * 60 * 60 * 24 * 2 // 2 days
-	},
-	{
-		name: 'Snoop Dogg',
-		imgUrl:
-			'https://i.seadn.io/gae/bH7Hqqi3WeKhwub7vnVOxdd9JFyK-qNIAfgvaDeRrDa-TOoQIlateBWcZmfqLRADxI2TMvYfpR2C3dkYCCusSy1hXIpT4uM7H-iE8A',
-		startTime: Date.now() - 1000 * 60 * 60 * 24 * 0.2, // 0.2 days ago
-		endTime: Date.now() + 1000 * 60 * 60 * 24 * 3.2 // 3.2 days
-	},
-	{
-		name: 'Yoots',
-		imgUrl: 'https://i.seadn.io/s/raw/files/712147b7b0a383fcd583caea01343897.png',
-		startTime: Date.now() - 1000 * 60 * 60 * 24 * 0.1, // 0.1 days ago
-		endTime: Date.now() + 1000 * 60 * 60 // 1 hour
-	},
-	{
-		name: 'Gala Music',
-		imgUrl: 'https://i.seadn.io/gcs/files/b4ad317ce389092af9b15f406dc5b9a2.png',
-		startTime: Date.now() - 1000 * 60 * 60 * 24 * 0.1, // 0.1 days ago
-		endTime: Date.now() + 1000 * 60 * 60 * 24 // 1 day
-	},
-	{
-		name: 'Mintify Genesis',
-		imgUrl: 'https://i.seadn.io/gcs/files/b4e41928ca3569dfad60c6069ed4b349.jpg',
-		startTime: Date.now() - 1000 * 60 * 60 * 24 * 0.1, // 0.1 days ago
-		endTime: Date.now() + 1000 * 60 * 60 * 24 * 7 // 1 week
-	}
-];
-export const NFTS = [
-	{
-		id: 1,
-		name: 'Lil Pudgys',
-		imgUrl:
-			'https://dl.openseauserdata.com/cache/originImage/files/2c49e50bcf36f2c91826171c0e7d2182.png'
-	},
-	{
-		id: 2,
-		name: 'Lil Pudgys',
-		imgUrl:
-			'https://dl.openseauserdata.com/cache/originImage/files/a4670ca7d3f0b602a8971284cce08ba8.png'
-	},
-	{
-		id: 3,
-		name: 'Lil Pudgys',
-		imgUrl:
-			'https://dl.openseauserdata.com/cache/originImage/files/a7df6e0ece63072695b7fda2b319602d.png'
-	},
-	{
-		id: 4,
-		name: 'Lil Pudgys',
-		imgUrl:
-			'https://dl.openseauserdata.com/cache/originImage/files/d9329fc115bfada74cf52a31f73565ed.png'
-	},
-	{
-		id: 5,
-		name: 'Lil Pudgys',
-		imgUrl:
-			'https://dl.openseauserdata.com/cache/originImage/files/00b50b2cee13bce1b1d6638619ff4b73.png'
-	},
-	{
-		id: 6,
-		name: 'Lil Pudgys',
-		imgUrl:
-			'https://dl.openseauserdata.com/cache/originImage/files/7f0ff4f87377ad8928c25fc1c313dafb.png'
-	}
-];
+/**
+ * Only for testing purposes, this file generates random data
+ */
+import type {
+	Auction,
+	EnglishAuction,
+	DutchAuction,
+	BlindAuction,
+	BlindSecondHighestAuction,
+	Bid,
+	Collection,
+	Nft,
+	AuctionType
+} from './api';
+
+const hr = 1000 * 60 * 60;
+const gNumber = () => {
+	return Number((Math.random() * 10).toFixed(3));
+};
+const gFraction = () => {
+	return Number(Math.random().toFixed(3));
+};
+const gInt = () => {
+	return Math.floor(Math.random() * 10000);
+};
+const gLorem = () => {
+	const lorem =
+		'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum';
+	const words = lorem.split(' ');
+	return words[Math.floor(Math.random() * words.length)];
+};
+const gAddress = () => {
+	return Array.from({ length: 55 }, () => Math.floor(Math.random() * 32).toString(32)).join('');
+};
+const gHex = (length?: number) => {
+	return Array.from({ length: length || 32 }, () =>
+		Math.floor(Math.random() * 16).toString(16)
+	).join('');
+};
+const gTime = () => {
+	return Date.now() + hr * Math.random();
+};
+const gImgAddress = () => {
+	const images = [
+		'https://i.seadn.io/s/raw/files/84a9e8ded899637720c648315394a0d5.png?auto=format&dpr=1&w=384',
+		'https://i.seadn.io/s/raw/files/37655e8f1d5a26f91070f4f01ac5d463.png?auto=format&dpr=1&w=512',
+		'https://i.seadn.io/s/raw/files/ec33991c9abfb25f7ec2ff1cec1d34b9.png?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/s/raw/files/3df4367fbc09d35bb2922fe1aae9ebac.png?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/s/raw/files/2fe42456bea313a4c6715b3028d9d8f1.png?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/s/raw/files/4bc38af0fbb32ae64468206c20a8d28e.png?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/s/raw/files/565f95f2393e71a0f9292d2773147fe9.png?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/s/raw/files/8d7b09fc55fc12fd60202208ce151a2e.png?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/s/raw/files/86bb7943b349790a966545957a990157.png?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/s/raw/files/78fc7d03c55f29f2365d944a591e469f.png?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/gae/bsILA43I-z1ZdcHFAdLE-IOOUfk8ma8e_F4GTyxgT_HpXNYOV3OP7pqhberrvjuXYv1BXWU-7A-U-wKT2tpukngnMQEggxcSZRn2-w?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/gae/Q9yJQuu-fvU5o2APNOvT-jgjdbE2s2uz3ekWM--Rq4AAJI3a9Mj9XgvGJs_aVkiQM9_7g_O1fFBDuue_F_axthobeE5M2Qpt7v6v?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/gae/oH7EIXQEf6pd5X02Hsdmr9bGL4JJeb6FuBrFDq30j1JVXNv6v6Ykdp9VMQfadoo5WZb3XUQ12-doLlBdlNlWBI_9wUvID-AEQVeQ?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/gae/X612Bf0yzcWM-LeGali3ucSk42-FW-ItsAaAe4XWFPcyVHyPlHQLlrZuxqLADDLGb2z-SA-h1UZs3kBDXK8bEaHfukMVaW0772Yi-w?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/s/raw/files/4287f2552cda61304e4f7042353780db.png?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/gcs/files/7943580aa7b09ce5a4df2c4bb8069ce0.png?auto=format&dpr=1&w=327',
+		'https://i.seadn.io/gcs/files/f3ada3567d9fc15a51e8e5e4ad479b87.png?auto=format&dpr=1&w=327'
+	];
+	return images[Math.floor(Math.random() * images.length)];
+};
+const gNfts = () => {
+	const nft: Nft = {
+		typename: 'Nft',
+		collectionAddress: gAddress(),
+		idx: gInt(),
+		name: gLorem(),
+		imgUrl: gImgAddress(),
+		owner: gAddress(),
+		dataHash: gHex(),
+		locked: false
+	};
+	return nft;
+};
+const gCollection = () => {
+	const collection: Collection = {
+		typename: 'Collection',
+		address: gAddress(),
+		name: gLorem(),
+		floorPrice: gNumber(),
+		description: gHex(),
+		nfts: Array.from({ length: 10 }, gNfts)
+	};
+	return collection;
+};
+const gAuctionType = () => {
+	const auctionTypes = [gEnglishAuction, gDutchAuction, gBlindAuction, gBlindSecondHighestAuction];
+	const roll = Math.floor(Math.random() * auctionTypes.length);
+	const auctionType: AuctionType = auctionTypes[roll]();
+	return auctionType;
+};
+const gEnglishAuction = () => {
+	const auction: EnglishAuction = {
+		typename: 'EnglishAuction',
+		id: gInt(),
+		maxBidder: gHex(32),
+		maxBid: gNumber(),
+		bidCount: gInt(),
+		bids: [],
+		endTime: gTime() + hr * 10
+	};
+	return auction;
+};
+const gDutchAuction = () => {
+	const auction: DutchAuction = {
+		typename: 'DutchAuction',
+		id: gInt(),
+		startPrice: gNumber(),
+		decayRate: gFraction(),
+		minPrice: gNumber()
+	};
+	return auction;
+};
+const gBlindAuction = () => {
+	const auction: BlindAuction = {
+		typename: 'BlindAuction',
+		id: gInt(),
+		revealTime: gTime() + hr,
+		bidCount: gInt(),
+		endTime: gTime() + hr * 10
+	};
+	return auction;
+};
+const gBlindSecondHighestAuction = () => {
+	const auction: BlindSecondHighestAuction = {
+		typename: 'BlindSecondHighestAuction',
+		id: gInt(),
+		revealTime: gTime() + hr * 5,
+		bidCount: gInt(),
+		endTime: gTime() + hr * 10
+	};
+	return auction;
+};
+const gAuction = () => {
+	return {
+		typename: 'Auction',
+		id: gInt(),
+		nft: gNfts(),
+		creator: gAddress(),
+		startTime: gTime() - hr,
+		ended: false,
+		winner: gHex(),
+		type: gAuctionType()
+	} as Auction;
+};
+const gBid = () => {
+	const bid: Bid = {
+		typename: 'Bid',
+		auction: gAuction(),
+		bidder: gHex(),
+		amount: gNumber(),
+		timestamp: gHex()
+	};
+	return bid;
+};
+
+const count = 10;
+
+export const Nfts: Array<Nft> = Array.from({ length: count }, gNfts);
+
+export const Collections: Array<Collection> = Array.from({ length: count }, gCollection);
+
+export const Auctions: Array<Auction> = Array.from({ length: count }, gAuction);
+
+export const Bids: Array<Bid> = Array.from({ length: count }, gBid);

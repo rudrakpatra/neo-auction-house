@@ -7,19 +7,14 @@ const theme = {
 	},
 	screens: {
 		sm: '640px',
-		// => @media (min-width: 640px) { ... }
-
 		md: '768px',
-		// => @media (min-width: 768px) { ... }
-
 		lg: '1024px',
-		// => @media (min-width: 1024px) { ... }
-
-		xl: '1280px'
-		// => @media (min-width: 1280px) { ... }
+		xl: '1280px',
+		'2xl': '1720px',
+		'3xl': '2560px'
 	},
 	colors: {
-		primary: '#00b2ff', //cyan
+		primary: '#00b2ff', //blue
 		secondary: '#00ff38', //lime
 		accent: '#ff6b00', //orange
 		red: '#ff0000', //red
@@ -35,6 +30,16 @@ const theme = {
 			800: '#3f3f46',
 			900: '#27272a',
 			950: '#09090b'
+		},
+		card: {
+			DEFAULT: '#09090b',
+			lighter: '#27272a',
+			darker: '#040408',
+			foreground: {
+				DEFAULT: '#d4d4d8',
+				lighter: '#fafafa',
+				darker: '#a1a1aa'
+			}
 		}
 	}
 };

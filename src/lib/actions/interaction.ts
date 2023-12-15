@@ -1,5 +1,6 @@
-import { expoOut } from 'svelte/easing';
+import { cubicInOut, expoOut } from 'svelte/easing';
 import { spring, tweened } from 'svelte/motion';
+import { blur } from 'svelte/transition';
 
 export function press(
 	el: HTMLElement,
@@ -15,7 +16,9 @@ export function press(
 		}
 	}
 ) {
-	const pressSpring = spring(0, { stiffness: 0.5, damping: 0.5 });
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return { destroy: () => {} };
+
+	let pressSpring = spring(0, { stiffness: 0.5, damping: 0.5 });
 
 	const onpress = (ev: unknown) => {
 		if (ev instanceof KeyboardEvent && ev.code !== 'Enter' && ev.code !== 'Space') return;
@@ -28,17 +31,30 @@ export function press(
 		pressSpring.damping = 0.25;
 		pressSpring.set(0);
 	};
-	pressSpring.subscribe((t) => config.press(el, t));
+
+	let unsubscriber = pressSpring.subscribe((t) => config.press(el, t));
+	const handleVisibilityChange = () => {
+		if (document.hidden) {
+			unsubscriber();
+		} else {
+			pressSpring = spring(0, { stiffness: 0.5, damping: 0.5 });
+			unsubscriber = pressSpring.subscribe((t) => config.press(el, t));
+		}
+	};
+	el.style.userSelect = 'none';
 	el.style.cursor = 'pointer';
+	document.addEventListener('visibilitychange', handleVisibilityChange);
 	el.addEventListener('keydown', onpress);
 	el.addEventListener('keyup', onrelease);
-
+	el.addEventListener('dragend', onrelease);
 	el.addEventListener('pointerdown', onpress);
 	return {
 		destroy: () => {
+			unsubscriber();
+			document.removeEventListener('visibilitychange', handleVisibilityChange);
 			el.removeEventListener('keydown', onpress);
 			el.removeEventListener('keyup', onrelease);
-
+			el.removeEventListener('dragend', onrelease);
 			el.removeEventListener('pointerdown', onpress);
 		}
 	};
@@ -66,6 +82,7 @@ export function focus(
 		}
 	}
 ) {
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return { destroy: () => {} };
 	const focusTween = tweened(0, { easing: expoOut, duration: 500 });
 
 	const onfocusin = () => {
@@ -87,3 +104,7 @@ export function focus(
 		}
 	};
 }
+
+export const flash = (node: Element) => {
+	return blur(node, { duration: 1000, easing: cubicInOut });
+};

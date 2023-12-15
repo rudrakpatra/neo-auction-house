@@ -1,9 +1,6 @@
 <script lang="ts">
-	import Auction from '$lib/components/Auction.svelte';
-	import NFTSlider from './NFTSlider.svelte';
-
+	import NFTCardGrid from './NFTCardGrid.svelte';
 </script>
 
-<div class="header-p-t">
-	<NFTSlider/>
-</div>
+<header-config data-floating-search-bar="false"/>
+<NFTCardGrid/>
