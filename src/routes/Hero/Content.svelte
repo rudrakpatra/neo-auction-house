@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { formatEllipsis } from '$lib/formatting';
-	import HeroBlind from './auctions/HeroBlind.svelte';
+	import Blind from './Content/Blind.svelte';
 	import { Auctions } from '$lib/data';
-	import { fade, scale, fly } from 'svelte/transition';
-	import HeroEnglish from './auctions/HeroEnglish.svelte';
-	import HeroDutch from './auctions/HeroDutch.svelte';
+	import { fade, fly } from 'svelte/transition';
+	import English from './Content/English.svelte';
+	import Dutch from './Content/Dutch.svelte';
+	import Blindv2 from './Content/Blindv2.svelte';
 
 	export let auction = Auctions[0];
 
@@ -24,13 +25,13 @@
 	</div>
 	<div class="flex justify-end items-end gap-4 mt-4">
 		{#if typename == 'EnglishAuction'}
-			<HeroEnglish {auction} />
+			<English {auction} />
 		{:else if typename == 'DutchAuction'}
-			<HeroDutch {auction} />
+			<Dutch {auction} />
 		{:else if typename == 'BlindAuction'}
-			<HeroBlind {auction} />
+			<Blind {auction} />
 		{:else if typename == 'BlindSecondHighestAuction'}
-			<HeroBlind {auction} />
+			<Blindv2 {auction} />
 		{/if}
 	</div>
 </div>

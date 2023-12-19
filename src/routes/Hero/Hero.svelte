@@ -6,8 +6,8 @@
 	import theme from '$lib/styles/theme';
 	import { press } from '$lib/actions/interaction';
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
-	import HeroContent from './HeroContent.svelte';
-	import HeroBackground from './HeroBackground.svelte';
+	import Content from './Content.svelte';
+	import Background from './Background.svelte';
 
 	let swiper: Swiper;
 	const initializer = (el: HTMLElement) => {
@@ -64,7 +64,7 @@
 
 <div class="hero pt-24 mx-auto">
 	<div class="-z-10 select-none pointer-events-none">
-		{#key bgImgUrl}<HeroBackground src={bgImgUrl} />{/key}
+		{#key bgImgUrl}<Background src={bgImgUrl} />{/key}
 	</div>
 	<div class="swiper" use:initializer>
 		<!-- Additional required wrapper -->
@@ -88,8 +88,7 @@
 				class="
 				w-16 h-16 p-2 rounded-full
 				stroke-paper-100 
-				border-2 border-paper-900/10
-				bg-transparent backdrop-blur-lg backdrop-brightness-75 backdrop-contrast-75 backdrop-saturate-200
+		 		bg-transparent backdrop-blur-lg backdrop-brightness-90 backdrop-contrast-50 backdrop-saturate-200
 				shadow-lg shadow-paper-950/20
 			"
 			/>
@@ -101,15 +100,14 @@
 				class="
 				w-16 h-16 p-2 rounded-full
 				stroke-paper-100 
-				border-2 border-paper-900/10
-				bg-transparent backdrop-blur-lg backdrop-brightness-75 backdrop-contrast-75 backdrop-saturate-200
+		 		bg-transparent backdrop-blur-lg backdrop-brightness-90 backdrop-contrast-50 backdrop-saturate-200
 				shadow-lg shadow-paper-950/20
 			"
 			/>
 		</span>
 	</div>
 	<div class="z-10 container mx-auto relative h-[200px]">
-		{#key selectedAuction}<HeroContent auction={selectedAuction} />{/key}
+		{#key selectedAuction}<Content auction={selectedAuction} />{/key}
 	</div>
 	<hidden class="swiper-slide-prev swiper-slide-active swiper-slide-next nav-button" />
 </div>

@@ -7,7 +7,22 @@ module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: theme,
 	plugins: [
-		plugin(function ({ addVariant }) {
+		plugin(function ({ addVariant,matchUtilities }) {
+			matchUtilities(
+				{
+				  mask: (direction) => ({
+					"mask":`linear-gradient(to ${direction}, #000 80%, transparent)`
+				  }),
+				},
+				{ 
+					values: {
+						top:'top',
+						right:'right',
+						left:'left',
+						bottom:'bottom'
+					} 
+				}
+			  );
 			addVariant('in-view', '.in-view&');
 		})
 	]

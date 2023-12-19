@@ -66,9 +66,8 @@
 				tabindex="-1"
 				type="text"
 				class="p-4 text-2xl rounded-lg min-w-[600px]
-				 bg-transparent backdrop-blur-lg backdrop-brightness-75 backdrop-contrast-75 backdrop-saturate-200
-				 border-2 border-paper-900/10
-				 text-paper-100 placeholder-paper-300
+				 bg-transparent backdrop-blur-lg backdrop-brightness-90 backdrop-contrast-50 backdrop-saturate-200
+				 text-paper-100 placeholder-paper-400
 				shadow-lg shadow-paper-950/20
             	"
 				placeholder="Search anything....."
@@ -80,8 +79,7 @@
 				type="button"
 				class="px-4 py-4 rounded-lg
 				aspect-square grid place-content-center
-				bg-transparent backdrop-blur-lg backdrop-brightness-75 backdrop-contrast-75 backdrop-saturate-200
-				border-2 border-paper-900/10
+				bg-transparent backdrop-blur-lg backdrop-brightness-90 backdrop-contrast-50 backdrop-saturate-200
 				shadow-lg shadow-paper-950/20
 				"
 			>

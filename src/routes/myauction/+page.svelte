@@ -1,19 +1,28 @@
 <script lang="ts">
+	import { io } from '$lib/actions/observers';
 	import { Auctions } from '$lib/data';
-	import AuctionCard from './AuctionCard.svelte';
+	import AuctionCard from './AuctionCard/AuctionCard.svelte';
 </script>
 
-<AuctionCard auction={Auctions[0]}/>
-<!-- <section class="container mx-auto layout">
-	{#each NFTS as nft}
-	<div use:io class="mx-auto transition-[opacity,transform] opacity-0 scale-90 in-view:opacity-100 in-view:scale-100">
-		<AuctionCard auction={Auctions[0]}/>
-	</div>
+<header-config data-floating-search-bar="false" />
+
+<section class="container mx-auto layout">
+	{#each Auctions as auction}
+		<div
+			use:io
+			class="mx-auto transition-[opacity,transform] opacity-0 scale-90 in-view:opacity-100 in-view:scale-100"
+		>
+			<AuctionCard {auction} />
+		</div>
 	{/each}
-</section> -->
-<style>
-	.layout{
-		@apply grid gap-4 py-8;
-		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+</section>
+
+<style lang="scss">
+	.layout {
+		@apply grid w-fit gap-6 p-6 place-content-center place-items-center;
+		grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+		> * {
+			@apply w-[380px];
+		}
 	}
 </style>

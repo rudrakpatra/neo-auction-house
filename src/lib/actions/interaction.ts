@@ -1,4 +1,4 @@
-import { cubicInOut, expoOut } from 'svelte/easing';
+import { cubicInOut, expoIn, expoOut } from 'svelte/easing';
 import { spring, tweened } from 'svelte/motion';
 import { blur } from 'svelte/transition';
 
@@ -9,10 +9,9 @@ export function press(
 	} = {
 		press: (el, t) => {
 			const w = el.getBoundingClientRect().width;
-			const h = el.getBoundingClientRect().height;
-			const x = w / (w + 6 * t);
-			const y = h / (h + 6 * t);
-			el.style.transform = `scale(${x}, ${y})`;
+			const pressDist = 1.2 * Math.log(w);
+			const x = w / (w + t * pressDist);
+			el.style.transform = `scale(${x})`;
 		}
 	}
 ) {
@@ -63,36 +62,62 @@ export function press(
 export function focus(
 	el: HTMLElement,
 	config: {
-		focus: (el: HTMLElement, t: number) => void;
+		in: (el: HTMLElement, t: number) => void;
+		out: (el: HTMLElement, t: number) => void;
 	} = {
-		focus: (el, t) => {
-			const x = t * 100;
-			const computedStyle = window.getComputedStyle(el);
-			el.dataset.textColor = el.dataset.textColor || computedStyle.color;
-			el.dataset.backgroundColor = el.dataset.backgroundColor || computedStyle.backgroundColor;
+		in: (el, t) => {
+			const easing = expoOut;
+			const e = easing(t);
+			const bg = el.getElementsByTagName('background')[0] as HTMLElement;
+			if (!bg) return;
+			const x1 = e * 100;
+			const x2 = e * 105;
 
-			const A = el.dataset.textColor;
-			const B = el.dataset.backgroundColor;
+			const computedStyle = getComputedStyle(bg);
+			const A = computedStyle.accentColor;
+			const B = computedStyle.backgroundColor;
 
-			//swap colors
-			// el.style.backgroundImage = `linear-gradient(to right, ${A} ${x}%, ${B} ${x}%, ${B})`;
-			// el.style.backgroundImage = `conic-gradient(from 0deg, ${A} ${x}%, ${B} ${x}%, ${B})`;
-			el.style.backgroundImage = `radial-gradient(circle at 50% 50%, ${A} ${x}%, ${B} ${x}%, ${B})`;
-			el.style.color = x < 50 ? A : B;
+			bg.style.opacity = `${x1 / 100}`;
+			bg.style.backgroundImage = `linear-gradient(to top, ${A} ${x1}%, ${B} ${x2}%, ${B})`;
+			// bg.style.backgroundImage = `conic-gradient(from 0deg, ${A} ${x1}%, ${B} ${x2}%, ${B})`;
+			// bg.style.backgroundImage = `radial-gradient(circle at 50% 50%, ${A} ${x1}%, ${B} ${x2}%, ${B})`;
+			bg.style.color = x1 < 50 ? A : B;
+		},
+		out: (el, t) => {
+			const easing = expoIn;
+			const e = easing(t);
+			const bg = el.getElementsByTagName('background')[0] as HTMLElement;
+			if (!bg) return;
+			const x1 = e * 100;
+			const x2 = e * 105;
+
+			const computedStyle = getComputedStyle(bg);
+			const A = computedStyle.accentColor;
+			const B = computedStyle.backgroundColor;
+
+			bg.style.opacity = `${x1 / 100}`;
+			bg.style.backgroundImage = `linear-gradient(to top, ${A} ${x1}%, ${B} ${x2}%, ${B})`;
+			// bg.style.backgroundImage = `conic-gradient(from 0deg, ${A} ${x1}%, ${B} ${x2}%, ${B})`;
+			// bg.style.backgroundImage = `radial-gradient(circle at 50% 50%, ${A} ${x1}%, ${B} ${x2}%, ${B})`;
+			bg.style.color = x1 < 50 ? A : B;
 		}
 	}
 ) {
 	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return { destroy: () => {} };
-	const focusTween = tweened(0, { easing: expoOut, duration: 500 });
-
+	const focusTween = tweened(0, { duration: 300 });
+	let animation = config.in;
 	const onfocusin = () => {
+		animation = config.in;
 		focusTween.set(1);
 	};
 	const onfocusout = () => {
+		animation = config.out;
 		focusTween.set(0);
 	};
 
-	focusTween.subscribe((t) => config.focus(el, t));
+	focusTween.subscribe((t) => {
+		animation(el, t);
+	});
 
 	el.addEventListener('focusin', onfocusin);
 	el.addEventListener('focusout', onfocusout);
